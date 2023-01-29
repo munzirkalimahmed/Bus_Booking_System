@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Bus_Booking_System.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SMTP_Gmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.gmail.com</Value>
+    </Setting>
+    <Setting Name="SMTP_Yahoo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.mail.yahoo.com</Value>
+    </Setting>
+    <Setting Name="SMTP_Outlook" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.outlook.com</Value>
+    </Setting>
+    <Setting Name="SMTP_Hotmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.live.com</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

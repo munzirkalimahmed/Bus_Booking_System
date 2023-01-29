@@ -1,0 +1,1440 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>SautinSoft.RtfToHtml</name>
+  </assembly>
+  <members>
+    <!-- Badly formed XML comment ignored for member "T:SautinSoft.Document.Html.CharsetDetector" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Html.RandomAccessFileOrArray.ReadShortLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Html.RandomAccessFileOrArray.ReadUnsignedShortLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Html.RandomAccessFileOrArray.ReadCharLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Html.RandomAccessFileOrArray.ReadIntLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Html.RandomAccessFileOrArray.ReadUnsignedInt" -->
+    <!-- Badly formed XML comment ignored for member "T:SautinSoft.Document.Pdf.Reader.CFFFont.Font" -->
+    <!-- Badly formed XML comment ignored for member "T:SautinSoft.Document.Pdf.Reader.PdfArray" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Pdf.Reader.PdfDictionary.Get(SautinSoft.Document.Pdf.Reader.PdfName)" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Pdf.Reader.PdfEncodings.ConvertToBytes(System.String,System.String)" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Pdf.Reader.PdfEncodings.ConvertToBytes(System.Char,System.String)" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Pdf.Reader.PdfEncodings.ConvertCmap(System.String,System.Byte[])" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Pdf.Reader.PdfEncodings.ConvertCmap(System.String,System.Byte[],System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Pdf.Reader.PdfName.CompareTo(SautinSoft.Document.Pdf.Reader.PdfName)" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.Pdf.Reader.PdfNull.#ctor" -->
+    <!-- Badly formed XML comment ignored for member "T:SautinSoft.Document.Pdf.Reader.PdfNumber" -->
+    <!-- Badly formed XML comment ignored for member "P:SautinSoft.Document.Pdf.Reader.Vector.Length" -->
+    <!-- Badly formed XML comment ignored for member "P:SautinSoft.Document.Pdf.Reader.Vector.LengthSquared" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.ByteBuffer.SetCacheSize(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.RandomAccessFileOrArray.ReadShortLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.RandomAccessFileOrArray.ReadUnsignedShortLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.RandomAccessFileOrArray.ReadCharLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.RandomAccessFileOrArray.ReadIntLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.RandomAccessFileOrArray.ReadUnsignedInt" -->
+    <member name="T:SautinSoft.RtfToHtml">
+      <summary>
+            RTF to HTML .Net is 100% written in C# assembly which provides API to convert Text, DOCX and RTF documents to HTML 3.2, 4.01 + with CSS, HTML5, XHTML 1.01.
+            </summary>
+      <remarks>
+            The library enables to any .Net app convert:
+            <ul><li>Text and RTF documents to HTML 3.2, 4.01 + with CSS, HTML5, XHTML 1.01</li><li>DOCX documents to HTML 3.2, 4.01 + with CSS, HTML5, XHTML 1.01. SautinSoft.RtfToHtml.dll supports DOCX staring from .Net 4.0 platform.</li><li>RTF documents to Text</li></ul><p>The component provides conversion with full text formatting (font face, color, size, bold, italic, underline, double underline, strike, superscript, subscript), images (JPG, PNG, GIF, BMP and images embed in HTML using base-64 coder), tables (borders, background, nested tables, merged cells), full Unicode support, ordered and unordered lists etc.</p></remarks>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.#ctor">
+      <summary>
+            Creates a new instance of the <see cref="T:SautinSoft.RtfToHtml" /> class
+            </summary>
+      <example>
+        <code>
+            SautinSoft.RtfToHtml obj = new SautinSoft.RtfToHtml();
+            </code>
+        <code lang="vbnet">
+            Dim obj As New SautinSoft.RtfToHtml()
+            </code>
+      </example>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.eMeasurementUnits">
+      <summary>
+            Allows to specify desired measurement units for all values in HTML document
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eMeasurementUnits.px">
+      <summary>
+            Pixels
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eMeasurementUnits.pt">
+      <summary>
+            Points
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eMeasurementUnits.inch">
+      <summary>
+            Inches
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eMeasurementUnits.mm">
+      <summary>
+            Millimeters
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eMeasurementUnits.em">
+      <summary>
+            Em
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.eFont">
+      <summary>
+            Allows to disable all font parameters: size, face, color
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eFont.Enable">
+      <summary>
+            Preserve all font parameters as in RTF
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eFont.Disable">
+      <summary>
+            Disable all font parameters: size, face, color
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.eHtmlParts">
+      <summary>
+            Allows to specify type of produced HTML: complete HTML or only between tags &lt;body&gt;...&lt;/body&gt;
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eHtmlParts.Html_completely">
+      <summary>
+            Produce complete HTML document
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eHtmlParts.Html_body">
+      <summary>
+            Produce HTML only between tags &lt;body&gt;...&lt;/body&gt;
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.eHyperlinkTarget">
+      <summary>
+            Allows to set up a default "target" for all hyperlinks
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eHyperlinkTarget.None">
+      <summary>
+            without target attribute
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eHyperlinkTarget.Blank">
+      <summary>
+            set target = "_blank"
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eHyperlinkTarget.Parent">
+      <summary>
+            target = "_parent"
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eHyperlinkTarget.Self">
+      <summary>
+            target = "_self"
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eHyperlinkTarget.Top">
+      <summary>
+            target = "_top"
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.eTags">
+      <summary>
+            Allows to set default tag for paragraphs: &lt;p&gt; or &lt;div&gt; 
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eTags.p">
+      <summary>
+            Set &lt;p&gt; as default tag for paragraphs
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eTags.div">
+      <summary>
+            Set &lt;div&gt; as default tag for paragraphs
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.eEncoding">
+      <summary>
+            Allows to set encoding for the resulting HTML document
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.Windows_1250">
+      <summary>
+            Set windows-1250 encoding, Central European and Eastern European languages
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.Windows_1251">
+      <summary>
+            Set windows-1251 encoding, designed to cover languages that use the Cyrillic alphabet 
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.Windows_1252">
+      <summary>
+            Set windows-1252 encoding, character encoding of the Latin alphabet
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.Windows_1253">
+      <summary>
+            Set windows-1253 encoding, Windows code page used to write modern Greek (but not polytonic Greek).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.Windows_1254">
+      <summary>
+            Set windows-1254 encoding, Turkish
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.Windows_1255">
+      <summary>
+            Set windows-1255 encoding, Hebrew
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.Windows_1256">
+      <summary>
+            Set windows-1256 encoding, Arabic
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.Windows_1257">
+      <summary>
+            Set windows-1257 encoding, used to write Estonian (although that can also be written with Windows-1252), Latvian and Lithuanian languages 
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.Windows_1258">
+      <summary>
+            Set windows-1258 encoding, Vietnamese
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.ISO_8859_1">
+      <summary>
+            Set iso-8859-1 encoding, Western European languages 
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.ISO_8859_2">
+      <summary>
+            Set iso-8859-2 encoding, can be used for the following languages: Bosnian, Croatian, Czech, German, Hungarian, Polish, Romanian, Serbian (when in the Latin script), Slovak, Slovene, Upper Sorbian, and Lower Sorbian
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.ISO_8859_3">
+      <summary>
+            Set iso-8859-3 encoding, South European. It was designed to cover Turkish, Maltese and Esperanto
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.ISO_8859_4">
+      <summary>
+            Set iso-8859-4 encoding, North European. It was designed to cover Estonian, Latvian, Lithuanian, Greenlandic, and Sami
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.ISO_8859_5">
+      <summary>
+            Set iso-8859-5 encoding, Latin/Cyrillic. It was designed to cover languages using a Cyrillic alphabet such as Bulgarian, Belarusian, Russian, Serbian and Macedonian
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.ISO_8859_6">
+      <summary>
+            Set iso-8859-6 encoding, Latin/Arabic
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.ISO_8859_7">
+      <summary>
+            Set iso-8859-7 encoding, Latin/Greek alphabet
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.ISO_8859_8">
+      <summary>
+            Set iso-8859-8 encoding, Hebrew
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.ISO_8859_9">
+      <summary>
+            Set iso-8859-9 encoding, Turkish
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.KOI8_R">
+      <summary>
+            Set koi8-r encoding, Cyrillic
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eEncoding.UTF_8">
+      <summary>
+            Set utf-8 encoding, Unicode. Designed for all languages.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.eOutputFormat">
+      <summary>
+            Allows to specify format for the resulting document
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eOutputFormat.Text">
+      <summary>
+            plain Text, supports Unicode
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eOutputFormat.HTML_32">
+      <summary>
+            plain HTML 3.2 format
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eOutputFormat.HTML_401">
+      <summary>
+            HTML 4.01 with CSS
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eOutputFormat.XHTML_10">
+      <summary>
+            XHTML 1.0 with CSS
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eOutputFormat.HTML_5">
+      <summary>
+            HTML 5
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.eImageFormat">
+      <summary>
+            Possible formats for storing images
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eImageFormat.Png">
+      <summary>
+            Save images in PNG format
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eImageFormat.Jpg">
+      <summary>
+            Save images in JPEG format
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eImageFormat.Gif">
+      <summary>
+            Save images in GIF format
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eImageFormat.Auto">
+      <summary>
+            Leave images in the same format as they were stored in RTF. Images in WMF format will be converted to PNG, because HTML doesn't support WMF
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.eTableBorderType">
+      <summary>
+            Allows to override the table borders
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eTableBorderType.Hidden">
+      <summary>
+            Make all borders invisible
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eTableBorderType.Visible">
+      <summary>
+            Make all borders visible
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eTableBorderType.SameAsInRtf">
+      <summary>
+            Make all borders the same as in RTF
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.eTableWidthType">
+      <summary>
+            Allows to set the measurement units for attribute "width" in tables: pixels or percents
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eTableWidthType.Pixels">
+      <summary>
+            Use pixels
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.eTableWidthType.Percents">
+      <summary>
+            Use percents
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.CTagStyle">
+      <summary>
+            Allows to set default tag for paragraphs: &lt;p&gt; or &lt;div&gt;
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTagStyle.ParagraphTag">
+      <summary>
+            Allows to set default tag for paragraphs: &lt;p&gt; or &lt;div&gt;
+            </summary>
+      <remarks>
+            Default value: <see cref="F:SautinSoft.RtfToHtml.eTags.div" />.<br /><br /></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Adjusting Properties and Settings\Set tag for paragraphs\sample.cs" title="Set tag for paragraphs using C#.">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Adjusting Properties and Settings\Set tag for paragraphs\sample.vb" title="Set tag for paragraphs using VB.Net.">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTagStyle.#ctor">
+      <summary>
+            Creates an instance of the <see cref="T:SautinSoft.RtfToHtml.CTagStyle" /> class
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.CTextStyle">
+      <summary>
+            Allows to set up different properties for the resulting HTML document: title, alignment, default font, color, size, name for CSS styles, etc.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.ObjectAttachmentPlaceholder">
+      <summary>
+            Sets a string value which will be inserted into HTML instead of '\objattph' RTF keywords.
+            </summary>
+      <remarks>
+            For example, you may set a value as HTML comment "&lt;!-- My Comment --&gt;" and after conversion replace these comments to any desired data (images).<br />
+            See details: <a href="https://msdn.microsoft.com/en-us/library/office/cc815335.aspx" target="_blank">https://msdn.microsoft.com/en-us/library/office/cc815335.aspx</a>.<br />
+            Default value: String.Empty.
+            </remarks>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.CTextStyle.CFontColor">
+      <summary>
+            Class which allows to specify a single font color for produced HTML
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.CFontColor.#ctor">
+      <summary>
+            Constructor of the <see cref="T:SautinSoft.RtfToHtml.CTextStyle.CFontColor" /> class
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.CFontColor.SetRGB(System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Set a single font color for all text in HTML document
+            </summary>
+      <param name="R">Red color</param>
+      <param name="G">Green color</param>
+      <param name="B">Blue color</param>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.CFontColor.Auto">
+      <summary>
+            Use the same colors as in RTF document
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.CFontColor.GetRGB(System.Int32@,System.Int32@,System.Int32@)">
+      <summary>
+            Get color value in RGB
+            </summary>
+      <param name="R">Red color</param>
+      <param name="G">Green color</param>
+      <param name="B">Blue color</param>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.CTextStyle.CTextAlignment">
+      <summary>
+            Class which allows to set a single alignment for all text
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.CTextAlignment.#ctor">
+      <summary>
+            Creates an object of <see cref="T:SautinSoft.RtfToHtml.CTextStyle.CTextAlignment" /> class
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.CTextAlignment.Auto">
+      <summary>
+            Use the same alignment as in RTF document. This property is set by default.
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.CTextAlignment.Left">
+      <summary>
+            Align all text by left
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.CTextAlignment.Center">
+      <summary>
+            Align all text by center
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.CTextAlignment.Right">
+      <summary>
+            Align all text by right
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.CTextAlignment.Justify">
+      <summary>
+            Align all text by justify
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTextStyle.#ctor">
+      <summary>
+            Creates an object of the <see cref="T:SautinSoft.RtfToHtml.CTextStyle" /> class
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.PreserveDocumentWidth">
+      <summary>
+            Keep fixed width for paragraphs the same as in RTF or make the width not set.
+            </summary>
+      <remarks>
+            Default value: false.<br /><br />
+            Thus, the whole HTML document will be stretched by whole screen.
+            </remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.PreserveDocumentMargins">
+      <summary>
+            Keep document margins the same as in RTF or set them to zero.
+            </summary>
+      <remarks>
+            Default value: false.
+            </remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.FontColor">
+      <summary>
+            Set a single color for all text
+            </summary>
+      <remarks>
+            Default value: Auto.<br /><br />
+            Auto - keep the same colors as in original RTF document.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.HyperlinkTarget">
+      <summary>
+            Set the attribute 'target = ' for &lt;a ...&gt; tags
+            </summary>
+      <remarks>
+            Default value: <see cref="F:SautinSoft.RtfToHtml.eHyperlinkTarget.None" />.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.HyperlinkDetect">
+      <summary>
+            Detect hyperlinks inside text or not. For example, if this property set to 'true' so such text <b>www.website.com</b> will be marked as hyperlink
+            </summary>
+      <remarks>
+            Default value: false.<br /><br /></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Adjusting Properties and Settings\Detect hyperlinks from text\sample.cs" title="Detect hyperlinks in document using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Adjusting Properties and Settings\Detect hyperlinks from text\sample.vb" title="Detect hyperlinks in document using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.InlineCSS">
+      <summary>
+            Make CSS saved as inline, for example &lt;span style="....."&gt;. If this property set to 'false', styles will be saved between &lt;style&gt;...&lt;/style&gt; tags.
+            </summary>
+      <remarks>
+            Default value: false.<br /><br /></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Adjusting Properties and Settings\Set properties to generate CSS\sample.cs" title="Set properties to generate CSS using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Adjusting Properties and Settings\Set properties to generate CSS\sample.vb" title="Set properties to generate CSS using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.TextAligment">
+      <summary>
+            Set single alignment for all text in HTML document, by default - Auto, it's the same as in original RTF
+            </summary>
+      <remarks>
+            Default value: Auto.<br /><br />
+            Auto - keep the same text alignment as in original RTF document.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.Title">
+      <summary>
+            Put page title text between &lt;title&gt;...&lt;/title&gt; tags
+            </summary>
+      <remarks>
+            Default value: "Untitled document".<br /><br /></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Adjusting Properties and Settings\Set document title\sample.cs" title="Set document title using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Adjusting Properties and Settings\Set document title\sample.vb" title="Set document title using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.FontSize">
+      <summary>
+            Specify single font size for all document, otherwise font sizes will be as in RTF
+            </summary>
+      <remarks>
+            Default value: 0.<br /><br />
+            0 - keep the same font sizes as in original RTF document.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.Font">
+      <summary>
+            Allows to disable all font parameters: size, face, color
+            </summary>
+      <remarks>
+            Default value: <see cref="F:SautinSoft.RtfToHtml.eFont.Enable" />.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.FontFace">
+      <summary>
+            Specify single font face for all document
+            </summary>
+      <remarks>
+            Default value: "" - empty string.<br /><br />
+            Empty string - keep the same fonts as in original RTF document.<br /><br /></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Adjusting Properties and Settings\Set single font family size and color\sample.cs" title="Set single font family size and color using C#.">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Adjusting Properties and Settings\Set single font family size and color\sample.vb" title="Set single font family size and color using VB.Net.">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.StyleName">
+      <summary>
+            Specify the template name for CSS styles, by default it's a "st". For example, &lt;span class="st1"&gt;
+            </summary>
+      <remarks>
+            Default value: "st".<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.StartCSSNumber">
+      <summary>
+            The start number for CSS styles which will be used in the style name, by default it's 1. For example, &lt;span class="st1"&gt;
+            </summary>
+      <remarks>
+            Default value: 1.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.MeasurementUnits">
+      <summary>
+            Allows to set single measurement units for whole HTML document
+            </summary>
+      <remarks>
+            Default value: <see cref="F:SautinSoft.RtfToHtml.eMeasurementUnits.px" />.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTextStyle.PreserveTrackChanges">
+      <summary>
+            Show tracking changes in HTML or skip them.
+            </summary>
+      <remarks>
+            Default value: false.    
+            </remarks>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.CImageStyle">
+      <summary>
+            Allows to specify different properties for image: quality, format, path to store etc.
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CImageStyle.#ctor">
+      <summary>
+            Creates an object of the <see cref="T:SautinSoft.RtfToHtml.CImageStyle" /> class
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CImageStyle.Quality">
+      <summary>
+            Set image quality, default value is 100. You may set any value from 1 ... 10000
+            </summary>
+      <remarks>
+            Default value: 100<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CImageStyle.IncludeImageInHtml">
+      <summary>
+            Allows to specify how to store images: Inside HTML document as base64 images or as linked separate image files.
+            </summary>
+      <remarks>
+            Default value: false<br /><br />In this case the component will save images in file system.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CImageStyle.MakeAbsolutePathToImage">
+      <summary>
+            Specify the component to put an absolute image path inside &lt;img src="..." &gt; tags. 
+            </summary>
+      <remarks>
+            Default value: false.<br /><br />In this case the component will place a relative path to image inside &lt;img src="..." &gt; tags.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CImageStyle.ImageFolder">
+      <summary>
+            Gets or sets a path to a directory to store images after converting. Notice also to the property "ImageSubFolder".
+            </summary>
+      <remarks>
+            Notice: The folder must exist. The component can't and will not create this folder.<br />
+            The path must be an absolute and starts from a drive letter: "C:\.." or "D:\" etc.<br /><br />
+            Default value: The parent directory of the input HTML document when you are working with files or "String.Empty" when you are working using memory.<br /><br /></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Adjusting Properties and Settings\Set properties to store images\sample.cs" title="Set properties to store images string using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Adjusting Properties and Settings\Set properties to store images\sample.vb" title="Set properties to store images using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CImageStyle.ImageSubFolder">
+      <summary>
+            Gets or sets a folder name which will be created by the component to store images.            
+            </summary>
+      <remarks>
+            Default value: "filename_images" for converting physical files or "images" for conversion in memory.<br /><br />
+            Must be without any drive letters "C:\.." or "D:\" etc, only the folder as "myfolder".<br /><br /></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\RTF to HTML\Convert RTF string to HTML file\sample.cs" title="Convert RTF string to HTML file using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\RTF to HTML\Convert RTF string to HTML file\sample.vb" title="Convert RTF string to HTML file using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CImageStyle.ImageFileName">
+      <summary>
+            Gets or sets a template name for images.
+            </summary>
+      <remarks>
+            Default value: "image".<br />
+            In case of the "image" value, the extracted images will be named image1.png, image2.png, imageN.png
+            </remarks>
+      <example>
+        <code>
+            SautinSoft.RtfToHtml r = new SautinSoft.RtfToHtml();
+            r.ImageStyle.IncludeImageInHtml = false;
+            //Must already exist. In this folder will be stored subfolder with images
+            r.ImageStyle.ImageFolder = @"c:\my webs\";
+            //Subfolder for storing images
+            r.ImageStyle.ImageSubFolder = @"images";
+            //Start number for image counter which will be added in 'ImageFileName'
+            r.ImageStyle.ImageNumStart = 100;
+            //Template image name, for this case images will have names "picture100.jpg", picture101.png
+            r.ImageStyle.ImageFileName = "picture";        
+            </code>
+        <code lang="vbnet">
+            Dim r As New SautinSoft.RtfToHtml()
+            r.ImageStyle.IncludeImageInHtml = False
+            'Must already exist. In this folder will be stored subfolder with images
+            r.ImageStyle.ImageFolder = "c:\my webs\"
+            'Subfolder for storing images
+            r.ImageStyle.ImageSubFolder = "images"
+            'Start number for image counter which will be added in 'ImageFileName'
+            r.ImageStyle.ImageNumStart = 100
+            'Template image name, for this case images will have names "picture100.jpg", picture101.png
+            r.ImageStyle.ImageFileName = "picture"
+            </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CImageStyle.ImageNumStart">
+      <summary>
+            Start number for image counter which will be added in the <see cref="P:SautinSoft.RtfToHtml.CImageStyle.ImageFileName" /></summary>
+      <remarks>
+            Default value: 1.<br /><br /></remarks>
+      <example>
+        <code>
+            SautinSoft.RtfToHtml r = new SautinSoft.RtfToHtml();
+            r.ImageStyle.IncludeImageInHtml = false;
+            //Must already exist. In this folder will be stored subfolder with images
+            r.ImageStyle.ImageFolder = @"c:\my webs\";
+            //Subfolder for storing images
+            r.ImageStyle.ImageSubFolder = @"images";
+            //Start number for image counter which will be added in 'ImageFileName'
+            r.ImageStyle.ImageNumStart = 100;
+            //Template image name, for this case images will have names "picture100.jpg", picture101.png
+            r.ImageStyle.ImageFileName = "picture";        
+            </code>
+        <code lang="vbnet">
+            Dim r As New SautinSoft.RtfToHtml()
+            r.ImageStyle.IncludeImageInHtml = False
+            'Must already exist. In this folder will be stored subfolder with images
+            r.ImageStyle.ImageFolder = "c:\my webs\"
+            'Subfolder for storing images
+            r.ImageStyle.ImageSubFolder = "images"
+            'Start number for image counter which will be added in 'ImageFileName'
+            r.ImageStyle.ImageNumStart = 100
+            'Template image name, for this case images will have names "picture100.jpg", picture101.png
+            r.ImageStyle.ImageFileName = "picture"
+            </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CImageStyle.PreserveImages">
+      <summary>
+            Specifies whether to keep images or skip them.
+            </summary>
+      <remarks>
+            Default value: true.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CImageStyle.ImagesFormat">
+      <summary>
+            Specify format for storing images: Jpeg, Png, Gif or Auto 
+            </summary>
+      <remarks>
+            Default value: Auto.<br /><br />
+            "Auto" - leave images in the same format as they were stored in RTF. Images in WMF format will be converted to PNG, because HTML doesn't support WMF.<br /><br /></remarks>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.SautinImage">
+      <summary>
+            Allows to operate with images in memory during HTML to RTF and vice versa conversion
+            </summary>
+      <remarks>
+            See sample of using this class: <a href="http://blog.sautinsoft.com/?p=5" target="_blank">How to create HTML email with embedded images from RTF in .Net</a></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Adjusting Properties and Settings\Convert RTF to HTML email with images send using SmtpClient\sample.cs" title="Convert RTF to HTML email with images send using SmtpClient C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Adjusting Properties and Settings\Convert RTF to HTML email with images send using SmtpClient\sample.vb" title="Convert RTF to HTML email with images send using SmtpClient VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.SautinImage.Cid">
+      <summary>
+            Image Cid
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Adjusting Properties and Settings\Convert RTF to HTML email with images send using SmtpClient\sample.cs" title="Convert RTF to HTML email with images send using SmtpClient C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Adjusting Properties and Settings\Convert RTF to HTML email with images send using SmtpClient\sample.vb" title="Convert RTF to HTML email with images send using SmtpClient VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.SautinImage.Img">
+      <summary>
+            Object of the <see cref="T:System.Drawing.Image" /> standard class
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.SautinImage.Dispose">
+      <summary>
+            Releases the property Img from memory.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.CTableStyle">
+      <summary>
+            Specify table properties for output HTML document: borders type and width
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.CTableStyle.#ctor">
+      <summary>
+            Creates an instance of <see cref="T:SautinSoft.RtfToHtml.CTableStyle" /> class
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTableStyle.BorderType">
+      <summary>
+            Allows to set a single border for all tables in produced HTML
+            </summary>
+      <remarks>
+            Default value: <see cref="F:SautinSoft.RtfToHtml.eTableBorderType.SameAsInRtf" />.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.CTableStyle.WidthType">
+      <summary>
+            Allows to specify a width's measure for all tables in HTML document: pixels or percents
+            </summary>
+      <remarks>
+            Default value: <see cref="F:SautinSoft.RtfToHtml.eTableWidthType.Pixels" />.<br /><br /></remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.TableStyle">
+      <summary>
+            Specify table properties for output HTML document: borders and width
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.TextStyle">
+      <summary>
+            Set up properties for the resulting HTML document: title, alignment, default font, color, size, name for CSS styles, etc.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.TagStyle">
+      <summary>
+            Set up tags by default, for example set tags for paragraphs: &lt;p&gt; or &lt;div&gt;
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.OutputFormat">
+      <summary>
+            Specify output document format: <see cref="F:SautinSoft.RtfToHtml.eOutputFormat.HTML_32" />, <see cref="F:SautinSoft.RtfToHtml.eOutputFormat.HTML_401" />, <see cref="F:SautinSoft.RtfToHtml.eOutputFormat.XHTML_10" />, <see cref="F:SautinSoft.RtfToHtml.eOutputFormat.HTML_5" /> or <see cref="F:SautinSoft.RtfToHtml.eOutputFormat.Text" /></summary>
+      <remarks>
+            Default value: <see cref="F:SautinSoft.RtfToHtml.eOutputFormat.HTML_5" /><br /><br />.
+            </remarks>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.ImageStyle">
+      <summary>
+            Allows to specify different properties for images: quality, format, path to store etc.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.ExceptionList">
+      <summary>
+            Allows to get list with all arisen exceptions during the one conversion cycle.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.Encoding">
+      <summary>
+            Set encoding for the resulting HTML document
+            </summary>
+      <remarks>
+            Default value: <see cref="F:SautinSoft.RtfToHtml.eEncoding.UTF_8" /><br /><br />.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\RTF to HTML\Convert RTF file to HTML string\sample.cs" title="Convert RTF file to HTML string using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\RTF to HTML\Convert RTF file to HTML string\sample.vb" title="Convert RTF file to HTML string using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.UseNumericCharacterReference">
+      <summary>
+            Adjust the component to write HTML symbols in "<a href="http://en.wikipedia.org/wiki/Numeric_character_reference" target="_blank">NCR</a>" notation: &amp;#xxx; 
+            </summary>
+      <remarks>
+            Default value: false.<br /><br />
+            A numeric character reference (NCR) is a common markup construct used in SGML and other SGML-related markup languages such as HTML and XML. It consists of a short sequence of characters that, in turn, represent a single character from the Universal Character Set (UCS) of Unicode.<br /><br />
+            See details in <a href="http://en.wikipedia.org/wiki/Numeric_character_reference" target="_blank">Wikipedia ...</a></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Adjusting Properties and Settings\Use Numeric Character Reference\sample.cs" title="Use Numeric Character Reference using C#.">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Adjusting Properties and Settings\Use Numeric Character Reference\sample.vb" title="Use Numeric Character Reference using VB.Net.">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.Serial">
+      <summary>
+            Property to activate your copy of the component
+            </summary>
+      <remarks>The property doesn't work in the trial version, the same as the method <see cref="M:SautinSoft.RtfToHtml.SetSerial(System.String)">SetSerial</see>
+            Use this property only in the full version after purchasing.<br /><br /></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Activation of RTF to HTML .Net\sample.cs" title="Activation of RTF to HTML .Net using C#.">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Activation of RTF to HTML .Net\sample.vb" title="Activation of RTF to HTML .Net using VB.Net.">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.SetSerial(System.String)">
+      <summary>
+            Set a serial number to activate your copy after the purchasing.
+            </summary>
+      <param name="yourSerial">Serial number to activate your copy after purchasing. Use it when you got own serial number and registered version.</param>
+      <remarks>
+            Use your serial number only with the full version of the component which you've received after purchasing the license.<br /><br /></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Activation of RTF to HTML .Net\sample.cs" title="Activation of RTF to HTML .Net using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Activation of RTF to HTML .Net\sample.vb" title="Activation of RTF to HTML .Net using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlParts">
+      <summary>
+            Specify the component to produce only some parts of the HTML document
+            </summary>
+      <remarks>
+            Default value: <see cref="F:SautinSoft.RtfToHtml.eHtmlParts.Html_completely" />.<br /><br /></remarks>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenTextFromString(System.String)">
+      <summary>
+            Opens text document from string. 
+            </summary>
+      <param name="text">String which contains text document.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Text to HTML\Convert Text string to HTML string\sample.cs" title="Convert Text string to HTML string using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Text to HTML\Convert Text string to HTML string\sample.vb" title="Convert Text string to HTML string using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenText(System.String)">
+      <summary>
+            Opens text document from file. 
+            </summary>
+      <param name="text">String which contains path to text file.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Text to HTML\Convert Text file to HTML file\sample.cs" title="Convert Text file to HTML file using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Text to HTML\Convert Text file to HTML file\sample.vb" title="Convert Text file to HTML file using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenText(System.Byte[])">
+      <summary>
+            Opens text document from stream. 
+            </summary>
+      <param name="text">Bytes which contains text document.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Text to HTML\Convert Text to HTML using bytes array\sample.cs" title="Convert Text to HTML using bytes array C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Text to HTML\Convert Text to HTML using bytes array\sample.vb" title="Convert Text to HTML using bytes array VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenText(System.IO.Stream)">
+      <summary>
+            Opens text document from stream. 
+            </summary>
+      <param name="text">Stream which contains text document.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\Text to HTML\Convert Text to HTML using MemoryStream\sample.cs" title="Convert Text to HTML using MemoryStream C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\Text to HTML\Convert Text to HTML using MemoryStream\sample.vb" title="Convert Text to HTML using MemoryStream VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenRtf(System.String)">
+      <summary>
+            Opens RTF document from file or string. 
+            </summary>
+      <param name="rtf">String which contains RTF document or path to RTF file.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\RTF to HTML\Convert RTF string to HTML string\sample.cs" title="Convert RTF string to HTML string using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\RTF to HTML\Convert RTF string to HTML string\sample.vb" title="Convert RTF string to HTML string using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenRtf(System.IO.Stream)">
+      <summary>
+            Opens RTF document from System.IO.Stream object.
+            </summary>
+      <param name="stream">System.IO.Stream with RTF document.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\RTF to HTML\Convert RTF to HTML using MemoryStream\sample.cs" title="Convert RTF to HTML using MemoryStream C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\RTF to HTML\Convert RTF to HTML using MemoryStream\sample.vb" title="Convert RTF to HTML using MemoryStream VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenRtf(System.Uri)">
+      <summary>
+            Opens RTF document from System.Uri object.
+            </summary>
+      <param name="uri">RTF document as System.Uri object.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenRtf(System.Byte[])">
+      <summary>
+            Opens RTF document from array of bytes.
+            </summary>
+      <param name="bytes">RTF documents as array of bytes.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\RTF to HTML\Convert RTF to HTML using bytes array\sample.cs" title="Convert RTF to HTML using bytes array C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\RTF to HTML\Convert RTF to HTML using bytes array\sample.vb" title="Convert RTF to HTML using bytes array VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenDocx(System.String)">
+      <summary>
+            Opens a DOCX document from a file. Works under .Net 4.0 or higher.
+            </summary>
+      <param name="fileName">Path to a DOCX file.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\DOCX to HTML\Convert DOCX file to HTML file\sample.cs" title="Convert DOCX file to HTML file using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\DOCX to HTML\Convert DOCX file to HTML file\sample.vb" title="Convert DOCX file to HTML file using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenDocx(System.Byte[])">
+      <summary>
+            Opens a DOCX document from an array of bytes. Works under .Net 4.0 or higher.
+            </summary>
+      <param name="bytes">DOCX documents as array of bytes.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\DOCX to HTML\Convert DOCX bytes to HTML string\sample.cs" title="Convert DOCX bytes to HTML string using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\DOCX to HTML\Convert DOCX bytes to HTML string\sample.vb" title="Convert DOCX bytes to HTML string using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenDocx(System.IO.Stream)">
+      <summary>
+            Opens a DOCX document from System.IO.Stream object. Works under .Net 4.0 or higher.
+            </summary>
+      <param name="stream">DOCX document as System.IO.Stream object.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\DOCX to HTML\Convert DOCX to HTML using MemoryStream\sample.cs" title="Convert DOCX to HTML using MemoryStream C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\DOCX to HTML\Convert DOCX to HTML using MemoryStream\sample.vb" title="Convert DOCX to HTML using MemoryStream VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.OpenDocx(System.Uri)">
+      <summary>
+            Opens a DOCX document from System.Uri object. Works under .Net 4.0 or higher.
+            </summary>
+      <param name="uri">DOCX document as System.Uri object.</param>
+      <remarks>
+            This method works paired with ToHtml() methods.
+            </remarks>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ToHtml(System.String@,System.Collections.Generic.List{SautinSoft.RtfToHtml.SautinImage})">
+      <summary>
+            Creates HTML document as string.
+            </summary>
+      <param name="html">Writes the resulting HTML.</param>
+      <param name="arImages">Images are written to this list.</param>
+      <remarks>
+            This method works paired with OpenRtf() and OpenDocx() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\DOCX to HTML\Convert DOCX file to HTML string\sample.cs" title="Convert DOCX file to HTML string using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\DOCX to HTML\Convert DOCX file to HTML string\sample.vb" title="Convert DOCX file to HTML string using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ToHtml(System.IO.Stream)">
+      <summary>
+            Creates HTML document as stream.
+            </summary>
+      <param name="stream">Writes the resulting HTML to this stream.</param>
+      <remarks>
+            This method works paired with OpenRtf(), OpenDocx() or OpenText() methods.
+            </remarks>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ToHtml(System.Collections.Generic.List{SautinSoft.RtfToHtml.SautinImage})">
+      <summary>
+            Creates HTML document as stream.
+            </summary>
+      <param name="arImages">Images are written to this list.</param>
+      <returns>Resulting HTML as bytes.</returns>
+      <remarks>
+            This method works paired with OpenRtf(), OpenDocx() or OpenText() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\DOCX to HTML\Convert DOCX to HTML using bytes array\sample.cs" title="Convert DOCX to HTML using bytes array C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\DOCX to HTML\Convert DOCX to HTML using bytes array\sample.vb" title="Convert DOCX to HTML using bytes array VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ToHtml(System.String)">
+      <summary>
+            Creates HTML file.
+            </summary>
+      <param name="fileName">Path to store HTML file.</param>
+      <remarks>
+            This method works paired with OpenRtf() and OpenDocx() methods.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\RTF to HTML\Convert RTF file to HTML file\sample.cs" title="Convert RTF file to HTML file using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\RTF to HTML\Convert RTF file to HTML file\sample.vb" title="Convert RTF file to HTML file using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ToText">
+      <summary>
+            Creates a new text document as <see cref="T:System.String" />. Note, the method works paired with OpenRtf() and OpenDocx() methods.
+            </summary>
+      <returns>
+            Returns a new text document as <see cref="T:System.String" /> or <see cref="F:System.String.Empty" /> in case of failing.
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ToText(System.String)">
+      <summary>
+            Creates a new text document as <see cref="T:System.String" />. Note, the method works paired with OpenRtf() and OpenDocx() methods.
+            </summary>
+      <param name="fileName">Path to store the Text file.</param>
+      <remarks>
+            This method works paired with OpenRtf() and OpenDocx() methods.
+            </remarks>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ToText(System.IO.Stream)">
+      <summary>
+            Creates a new text document as <see cref="T:System.IO.Stream" />. Note, the method works paired with OpenRtf() and OpenDocx() methods.
+            </summary>
+      <param name="stream">Writes the resulting Text to this <see cref="T:System.IO.Stream" />. The stream must be already created.</param>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ToText(System.Byte[]@)">
+      <summary>
+            Creates a new text document as array of bytes. Note, the method works paired with OpenRtf() and OpenDocx() methods.
+            </summary>
+      <param name="textBytes">The resulting text document as array of bytes.</param>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertString(System.String,System.Collections.Generic.List{SautinSoft.RtfToHtml.SautinImage})">
+      <summary>
+            Converts Text/RTF string to Text/HTML/XHTML string with placing images into ArrayList
+            </summary>
+      <param name="inputString">Any string in RTF or Text formats</param>
+      <param name="arImages">Arraylist where the component will place images after converting</param>
+      <returns>
+            string with HTML/XHTML/Text document<br />
+            null - in case of converting failed
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertString(System.String)">
+      <summary>
+            Converts Text/RTF string to Text/HTML/XHTML string
+            </summary>
+      <param name="inputString">Any string in RTF format</param>
+      <returns>
+            string with HTML/XHTML document<br />
+            null - in case of converting failed
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertString(System.Byte[])">
+      <summary>
+            Converts an array of bytes with Text/RTF/DOCX document to Text/HTML/XHTML string
+            </summary>
+      <param name="inputBytes">Text/RTF/DOCX as stream bytes</param>
+      <returns>
+            produced HTML/XHTML/Text document as string<br />
+            null - in case of converting failed
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertString(System.IO.MemoryStream)">
+      <summary>
+            Converts <see cref="T:System.IO.MemoryStream" /> object with Text/RTF/DOCX to Text/HTML/XHTML string
+            </summary>
+      <param name="inputStream">
+        <see cref="T:System.IO.MemoryStream" /> object with Text/RTF/DOCX</param>
+      <returns>
+            produced HTML/XHTML/Text document as string<br />
+            null - in case of converting failed
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertString(System.Byte[],System.Collections.Generic.List{SautinSoft.RtfToHtml.SautinImage})">
+      <summary>
+            Converts an array of bytes with Text/RTF/DOCX document into Text/HTML/XHTML string
+            </summary>
+      <param name="inputBytes">Stream of bytes containing Text/RTF document</param>
+      <param name="arImages">Arraylist where component will place images after converting</param>
+      <returns>
+            string with HTML/XHTML document<br />
+            null - in case of converting failed
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertString(System.IO.MemoryStream,System.Collections.Generic.List{SautinSoft.RtfToHtml.SautinImage})">
+      <summary>
+            Converts object of <see cref="T:System.IO.MemoryStream" /> with Text/RTF/DOCX into Text/HTML/XHTML string
+            </summary>
+      <param name="inputStream">
+        <see cref="T:System.IO.MemoryStream" /> object containing Text/RTF/DOCX document</param>
+      <param name="arImages">Arraylist where component will place images after converting</param>
+      <returns>
+            string with HTML/XHTML document<br />
+            null - in case of converting failed
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertStringToFile(System.Byte[],System.String)">
+      <summary>
+            Converts stream of bytes with Text/RTF/DOCX into Text/HTML/XHTML file. Output file will be overwritten.
+            </summary>
+      <param name="inputBytes">Stream of bytes with Text/RTF/DOCX document</param>
+      <param name="outputFileName">Path to output file</param>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertStringToFile(System.IO.MemoryStream,System.String)">
+      <summary>
+            Converts <see cref="T:System.IO.MemoryStream" /> object with Text/RTF/DOCX into Text/HTML/XHTML file. Output file will be overwritten.
+            </summary>
+      <param name="inputStream">Object of <see cref="T:System.IO.MemoryStream" /> class with Text/RTF</param>
+      <param name="outputFileName">Path to output file</param>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertStringToFile(System.String,System.String)">
+      <summary>
+            Converts Text/RTF string to Text/HTML/XHTML file. Output file will be overwritten.
+            </summary>
+      <param name="inputString">Any string in RTF format</param>
+      <param name="outputFileName">Path to output file</param>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertFileToString(System.String)">
+      <summary>
+            Converts Text/RTF/DOCX file to Text/HTML/XHTML string
+            </summary>
+      <param name="inputPath">Path to Text/RTF/DOCX file, not URL</param>
+      <returns>
+            string with HTML/XHTML document<br />
+            null - in case of converting failed
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertFileToString(System.String,System.Collections.Generic.List{SautinSoft.RtfToHtml.SautinImage})">
+      <summary>
+            Converts Text/RTF/DOCX file to Text/HTML/XHTML string
+            </summary>
+      <param name="inputPath">Path to Text/RTF/DOCX file, not URL</param>
+      <param name="arImages">Arraylist where component will place images after converting</param>
+      <returns>
+            string with HTML/XHTML document<br />
+            null - in case of converting failed
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.ConvertFile(System.String,System.String)">
+      <summary>
+            Converts Text/RTF/DOCX file to Text/HTML/XHTML file. Output file will be overwritten.
+            </summary>
+      <param name="inputPath">Path to a local Text/RTF/DOCX file, not URL.</param>
+      <param name="htmlPath">Path to the output HTML file.</param>
+    </member>
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Utils.RandomAccessFileOrArray.ReadShortLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Utils.RandomAccessFileOrArray.ReadUnsignedShortLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Utils.RandomAccessFileOrArray.ReadCharLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Utils.RandomAccessFileOrArray.ReadIntLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Utils.RandomAccessFileOrArray.ReadUnsignedInt" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.ChannelDefinitionMapper.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.ChannelDefinitionMapper.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.ChannelDefinitionMapper.getFixedPoint(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.ColorSpaceMapper.getFixedPoint(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.ColorSpaceMapper.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.ColorSpaceMapper.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.EnumeratedColorSpaceMapper.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.EnumeratedColorSpaceMapper.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.EsRgbColorSpaceMapper.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.PalettizedColorSpaceMapper.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.PalettizedColorSpaceMapper.ToString" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.PalettizedColorSpaceMapper.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.PalettizedColorSpaceMapper.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.PalettizedColorSpaceMapper.getCompImgHeight(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.Resampler.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.Resampler.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.SYccColorSpaceMapper.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Color.SYccColorSpaceMapper.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Icc.ICCProfiler.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.Icc.ICCProfiler.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.Icc.Tags.ICCTag" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.codestream.ProgressionType" -->
+    <!-- Badly formed XML comment ignored for member "F:CSJ2K.j2k.codestream.reader.PktDecoder.ttIncl" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.codestream.writer.BitOutputBuffer" -->
+    <!-- Badly formed XML comment ignored for member "P:CSJ2K.j2k.codestream.writer.BitOutputBuffer.Length" -->
+    <!-- Badly formed XML comment ignored for member "P:CSJ2K.j2k.codestream.writer.BitOutputBuffer.Buffer" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.codestream.writer.BitOutputBuffer.writeBit(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.codestream.writer.BitOutputBuffer.writeBits(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.codestream.writer.CodestreamWriter.writePacketHead(System.Byte[],System.Int32,System.Boolean,System.Boolean,System.Boolean)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.codestream.writer.FileCodestreamWriter" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.codestream.writer.FileCodestreamWriter.writePacketHead(System.Byte[],System.Int32,System.Boolean,System.Boolean,System.Boolean)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.codestream.writer.FileCodestreamWriter.writePacketBody(System.Byte[],System.Int32,System.Boolean,System.Boolean,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "F:CSJ2K.j2k.codestream.writer.PktEncoder.prevtIdxs" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.entropy.CBlkSizeSpec" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.CBlkSizeSpec.getCBlkWidth(System.Byte,System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.entropy.decoder.EntropyDecoder" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.decoder.EntropyDecoder.getSynSubbandTree(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.decoder.MQDecoder.fastDecodeSymbols(System.Int32[],System.Int32,System.UInt32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.decoder.MQDecoder.decodeSymbols(System.Int32[],System.Int32[],System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.decoder.MQDecoder.decodeSymbol(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.decoder.MQDecoder.init" -->
+    <!-- Badly formed XML comment ignored for member "F:CSJ2K.j2k.entropy.decoder.StdEntropyDecoder.state" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.decoder.StdEntropyDecoder.getCodeBlock(System.Int32,System.Int32,System.Int32,CSJ2K.j2k.wavelet.synthesis.SubbandSyn,CSJ2K.j2k.image.DataBlk)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.decoder.StdEntropyDecoder.magRefPass(CSJ2K.j2k.image.DataBlk,CSJ2K.j2k.entropy.decoder.MQDecoder,System.Int32,System.Int32[],System.Boolean)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.decoder.StdEntropyDecoder.rawMagRefPass(CSJ2K.j2k.image.DataBlk,CSJ2K.j2k.entropy.decoder.ByteToBitInput,System.Int32,System.Int32[],System.Boolean)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.decoder.StdEntropyDecoder.cleanuppass(CSJ2K.j2k.image.DataBlk,CSJ2K.j2k.entropy.decoder.MQDecoder,System.Int32,System.Int32[],System.Int32[],System.Boolean)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.encoder.EBCOTRateAllocator.getAllCodeBlocks" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.encoder.EntropyCoder.isReversible(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.entropy.encoder.MQCoder" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.entropy.encoder.MQCoder.fastCodeSymbols(System.Int32,System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.entropy.PrecinctSizeSpec" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.fileformat.reader.FileFormatReader.readJP2HeaderBox(System.Int64,System.Int32,System.Int64)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.fileformat.reader.FileFormatReader.readContiguousCodeStreamBox(System.Int64,System.Int32,System.Int64)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.image.BlkImgDataSrc" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.BlkImgDataSrc.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.BlkImgDataSrc.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.ImgData.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.ImgDataAdapter.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.ImgDataConverter.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.ImgDataConverter.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.ImgDataJoiner.#ctor(CSJ2K.j2k.image.BlkImgDataSrc[],System.Int32[])" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.ImgDataJoiner.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.ImgDataJoiner.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.ImgDataJoiner.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.image.input.ImgReaderPGM" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.input.ImgReaderPGM.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.input.ImgReaderPGM.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.input.ImgReaderPGM.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.image.input.ImgReaderPGX" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.input.ImgReaderPGX.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.input.ImgReaderPGX.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.input.ImgReaderPGX.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.image.input.ImgReaderPPM" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.input.ImgReaderPPM.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.input.ImgReaderPPM.getInternCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.input.ImgReaderPPM.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.invcomptransf.InvCompTransf.getFixedPoint(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.invcomptransf.InvCompTransf.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.invcomptransf.InvCompTransf.getCompData(CSJ2K.j2k.image.DataBlk,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.invcomptransf.InvCompTransf.setTile(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.invcomptransf.InvCompTransf.nextTile" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.image.output.ImgWriterPGM" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.output.ImgWriterPGM.#ctor(System.String,CSJ2K.j2k.image.BlkImgDataSrc,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.image.output.ImgWriterPGX" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.output.ImgWriterPGX.#ctor(System.String,CSJ2K.j2k.image.BlkImgDataSrc,System.Int32,System.Boolean)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.image.output.ImgWriterPPM" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.output.ImgWriterPPM.write" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.output.ImgWriterPPM.writeHeaderInfo" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.image.Tiler.#ctor(CSJ2K.j2k.image.BlkImgDataSrc,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.io.BinaryDataOutput" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.io.BinaryDataOutput.writeByte(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.io.BinaryDataOutput.writeShort(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.io.BufferedRandomAccessFile" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.io.BufferedRandomAccessFile.writeByte(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.io.EndianType_Fields" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.JJ2KExceptionHandler" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.JJ2KExceptionHandler.handleException(System.Exception)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.ModuleSpec.parseIdx(System.String,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.NotImplementedError" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.NotImplementedError.#ctor" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.quantization.dequantizer.CBlkQuantDataSrcDec" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.quantization.dequantizer.Dequantizer.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.quantization.dequantizer.Dequantizer.getSynSubbandTree(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.quantization.dequantizer.Dequantizer.setTile(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.quantization.dequantizer.Dequantizer.nextTile" -->
+    <!-- Badly formed XML comment ignored for member "F:CSJ2K.j2k.quantization.dequantizer.StdDequantizerParams.exp" -->
+    <!-- Badly formed XML comment ignored for member "F:CSJ2K.j2k.quantization.dequantizer.StdDequantizerParams.nStep" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.quantization.QuantizationType_Fields" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.quantization.quantizer.Quantizer.getAnSubbandTree(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.quantization.QuantTypeSpec" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.roi.encoder.ArbROIMaskGenerator" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.roi.encoder.ArbROIMaskGenerator.getROIMask(CSJ2K.j2k.image.DataBlkInt,CSJ2K.j2k.wavelet.Subband,System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.roi.encoder.ArbROIMaskGenerator.makeMask(CSJ2K.j2k.wavelet.Subband,System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.roi.encoder.RectROIMaskGenerator" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.roi.encoder.RectROIMaskGenerator.getROIMask(CSJ2K.j2k.image.DataBlkInt,CSJ2K.j2k.wavelet.Subband,System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.roi.encoder.ROIMaskGenerator" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.roi.encoder.ROIScaler" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.roi.ROIDeScaler.getSynSubbandTree(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.StringSpec.#ctor(System.Int32,System.Int32,System.Byte,System.String,System.String[],CSJ2K.j2k.util.ParameterList)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.util.FacilityManager" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.util.ISRandomAccessIO" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.util.MsgLogger_Fields" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.util.MsgPrinter.nextLineEnd(System.String,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.util.MsgPrinter.nextWord(System.String,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.util.ParameterList.parseArgs(System.String[])" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.util.ThreadPool" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.util.ThreadPool.ThreadPoolThread.Run" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.util.ThreadPool.#ctor(System.Int32,System.Int32,System.String)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.util.ThreadPool.runTarget(IThreadRunnable,System.Object)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.util.ThreadPool.runTarget(IThreadRunnable,System.Object,System.Boolean)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.util.ThreadPool.clearTargetErrors" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.util.ThreadPool.putInIdleList(CSJ2K.j2k.util.ThreadPool.ThreadPoolThread)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.util.ThreadPool.getIdle(System.Boolean)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloat" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7" -->
+    <!-- Badly formed XML comment ignored for member "P:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7.SynLowNegSupport" -->
+    <!-- Badly formed XML comment ignored for member "P:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7.SynLowPosSupport" -->
+    <!-- Badly formed XML comment ignored for member "P:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7.SynHighNegSupport" -->
+    <!-- Badly formed XML comment ignored for member "P:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7.SynHighPosSupport" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7.analyze_lpf(System.Single[],System.Int32,System.Int32,System.Int32,System.Single[],System.Int32,System.Int32,System.Single[],System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7.analyze_hpf(System.Single[],System.Int32,System.Int32,System.Int32,System.Single[],System.Int32,System.Int32,System.Single[],System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7.getLPSynthesisFilter" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7.getHPSynthesisFilter" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7.isSameAsFullWT(System.Int32,System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.analysis.AnWTFilterFloatLift9x7.Equals(System.Object)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.wavelet.analysis.AnWTFilterInt" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.analysis.AnWTFilterIntLift5x3.analyze_hpf(System.Int32[],System.Int32,System.Int32,System.Int32,System.Int32[],System.Int32,System.Int32,System.Int32[],System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.analysis.AnWTFilterSpec.getHFilters(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.analysis.AnWTFilterSpec.getVFilters(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.synthesis.CBlkWTDataSrcDec.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.synthesis.InvWTFull.getNomRangeBits(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.synthesis.MultiResImgDataAdapter.getCompImgHeight(System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.wavelet.synthesis.SynWTFilter" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.wavelet.synthesis.SynWTFilterFloat" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.wavelet.synthesis.SynWTFilterFloatLift9x7" -->
+    <!-- Badly formed XML comment ignored for member "P:CSJ2K.j2k.wavelet.synthesis.SynWTFilterFloatLift9x7.SynLowNegSupport" -->
+    <!-- Badly formed XML comment ignored for member "P:CSJ2K.j2k.wavelet.synthesis.SynWTFilterFloatLift9x7.SynLowPosSupport" -->
+    <!-- Badly formed XML comment ignored for member "P:CSJ2K.j2k.wavelet.synthesis.SynWTFilterFloatLift9x7.SynHighNegSupport" -->
+    <!-- Badly formed XML comment ignored for member "P:CSJ2K.j2k.wavelet.synthesis.SynWTFilterFloatLift9x7.SynHighPosSupport" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.synthesis.SynWTFilterFloatLift9x7.synthetize_lpf(System.Single[],System.Int32,System.Int32,System.Int32,System.Single[],System.Int32,System.Int32,System.Int32,System.Single[],System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.synthesis.SynWTFilterFloatLift9x7.synthetize_hpf(System.Single[],System.Int32,System.Int32,System.Int32,System.Single[],System.Int32,System.Int32,System.Int32,System.Single[],System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.synthesis.SynWTFilterFloatLift9x7.isSameAsFullWT(System.Int32,System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.wavelet.synthesis.SynWTFilterInt" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.wavelet.WTDecompSpec" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.WTDecompSpec.#ctor(System.Int32,System.Int32,System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.WTDecompSpec.getDecSpecType(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.WTDecompSpec.getDecompType(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.WTDecompSpec.getLevels(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:CSJ2K.j2k.wavelet.WTFilterSpec" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.WTFilterSpec.#ctor(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:CSJ2K.j2k.wavelet.WTFilterSpec.getKerSpecType(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "T:jj2000.j2k.util.NativeServices" -->
+    <!-- Badly formed XML comment ignored for member "P:jj2000.j2k.util.NativeServices.ThreadConcurrency" -->
+    <!-- Badly formed XML comment ignored for member "M:SupportClass.Tokenizer.MoveNext" -->
+  </members>
+</doc>

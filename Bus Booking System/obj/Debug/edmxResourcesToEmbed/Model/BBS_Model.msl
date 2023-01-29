@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BBSModelStoreContainer" CdmEntityContainer="BBSEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="BBSModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdmID" ColumnName="AdmID" />
+          <ScalarProperty Name="AdmLoginID" ColumnName="AdmLoginID" />
+          <ScalarProperty Name="CustID" ColumnName="CustID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdminLogins">
+      <EntityTypeMapping TypeName="BBSModel.AdminLogin">
+        <MappingFragment StoreEntitySet="AdminLogin">
+          <ScalarProperty Name="AdmLoginID" ColumnName="AdmLoginID" />
+          <ScalarProperty Name="AdmUsername" ColumnName="AdmUsername" />
+          <ScalarProperty Name="AdmPassword" ColumnName="AdmPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buses">
+      <EntityTypeMapping TypeName="BBSModel.Bus">
+        <MappingFragment StoreEntitySet="Bus">
+          <ScalarProperty Name="BusID" ColumnName="BusID" />
+          <ScalarProperty Name="BusName" ColumnName="BusName" />
+          <ScalarProperty Name="BusNumber" ColumnName="BusNumber" />
+          <ScalarProperty Name="BusStatus" ColumnName="BusStatus" />
+          <ScalarProperty Name="BusSeat" ColumnName="BusSeat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="BBSModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustID" ColumnName="CustID" />
+          <ScalarProperty Name="CustName" ColumnName="CustName" />
+          <ScalarProperty Name="CustGender" ColumnName="CustGender" />
+          <ScalarProperty Name="CustContact" ColumnName="CustContact" />
+          <ScalarProperty Name="CustCnic" ColumnName="CustCnic" />
+          <ScalarProperty Name="CustDeparture" ColumnName="CustDeparture" />
+          <ScalarProperty Name="CustArrival" ColumnName="CustArrival" />
+          <ScalarProperty Name="CustDate" ColumnName="CustDate" />
+          <ScalarProperty Name="CustBus" ColumnName="CustBus" />
+          <ScalarProperty Name="CustPrice" ColumnName="CustPrice" />
+          <ScalarProperty Name="CustImage" ColumnName="CustImage" />
+          <ScalarProperty Name="CustLoginID" ColumnName="CustLoginID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerLogins">
+      <EntityTypeMapping TypeName="BBSModel.CustomerLogin">
+        <MappingFragment StoreEntitySet="CustomerLogin">
+          <ScalarProperty Name="CustLoginID" ColumnName="CustLoginID" />
+          <ScalarProperty Name="CustUsername" ColumnName="CustUsername" />
+          <ScalarProperty Name="CustPassword" ColumnName="CustPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="BBSModel.Driver">
+        <MappingFragment StoreEntitySet="Driver">
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="BusID" ColumnName="BusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="BBSModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="CustID" ColumnName="CustID" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registers">
+      <EntityTypeMapping TypeName="BBSModel.Register">
+        <MappingFragment StoreEntitySet="Register">
+          <ScalarProperty Name="RegID" ColumnName="RegID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

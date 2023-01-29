@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BBSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdmID" />
+          </Key>
+          <Property Name="AdmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdmLoginID" Type="int" Nullable="false" />
+          <Property Name="CustID" Type="int" />
+        </EntityType>
+        <EntityType Name="AdminLogin">
+          <Key>
+            <PropertyRef Name="AdmLoginID" />
+          </Key>
+          <Property Name="AdmLoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdmUsername" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdmPassword" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Bus">
+          <Key>
+            <PropertyRef Name="BusID" />
+          </Key>
+          <Property Name="BusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusStatus" Type="smallint" />
+          <Property Name="BusSeat" Type="int" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustID" />
+          </Key>
+          <Property Name="CustID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustGender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustContact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustCnic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustDeparture" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustArrival" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustDate" Type="date" Nullable="false" />
+          <Property Name="CustBus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustPrice" Type="int" Nullable="false" />
+          <Property Name="CustImage" Type="image" />
+          <Property Name="CustLoginID" Type="int" />
+        </EntityType>
+        <EntityType Name="CustomerLogin">
+          <Key>
+            <PropertyRef Name="CustLoginID" />
+          </Key>
+          <Property Name="CustLoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustUsername" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustPassword" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BusID" Type="int" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustID" Type="int" Nullable="false" />
+          <Property Name="PaymentDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Register">
+          <Key>
+            <PropertyRef Name="RegID" />
+          </Key>
+          <Property Name="RegID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cnic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="image" />
+        </EntityType>
+        <Association Name="FK_Aadmin_AdminLogin">
+          <End Role="AdminLogin" Type="Self.AdminLogin" Multiplicity="1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminLogin">
+              <PropertyRef Name="AdmLoginID" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="AdmLoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Admin_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustID" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="CustID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_CustomerLogin">
+          <End Role="CustomerLogin" Type="Self.CustomerLogin" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerLogin">
+              <PropertyRef Name="CustLoginID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CustLoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="CustID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BBSModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminLogin" EntityType="Self.AdminLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bus" EntityType="Self.Bus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerLogin" EntityType="Self.CustomerLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Register" EntityType="Self.Register" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Aadmin_AdminLogin" Association="Self.FK_Aadmin_AdminLogin">
+            <End Role="AdminLogin" EntitySet="AdminLogin" />
+            <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Admin_Customer" Association="Self.FK_Admin_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_CustomerLogin" Association="Self.FK_Customer_CustomerLogin">
+            <End Role="CustomerLogin" EntitySet="CustomerLogin" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Customer" Association="Self.FK_Payment_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BBSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdmID" />
+          </Key>
+          <Property Name="AdmID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdmLoginID" Type="Int32" Nullable="false" />
+          <Property Name="CustID" Type="Int32" />
+          <NavigationProperty Name="AdminLogin" Relationship="Self.FK_Aadmin_AdminLogin" FromRole="Admin" ToRole="AdminLogin" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Admin_Customer" FromRole="Admin" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="AdminLogin">
+          <Key>
+            <PropertyRef Name="AdmLoginID" />
+          </Key>
+          <Property Name="AdmLoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdmUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdmPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Admins" Relationship="Self.FK_Aadmin_AdminLogin" FromRole="AdminLogin" ToRole="Admin" />
+        </EntityType>
+        <EntityType Name="Bus">
+          <Key>
+            <PropertyRef Name="BusID" />
+          </Key>
+          <Property Name="BusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusStatus" Type="Int16" />
+          <Property Name="BusSeat" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustID" />
+          </Key>
+          <Property Name="CustID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustCnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustDeparture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustArrival" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CustBus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustPrice" Type="Int32" Nullable="false" />
+          <Property Name="CustImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CustLoginID" Type="Int32" />
+          <NavigationProperty Name="Admins" Relationship="Self.FK_Admin_Customer" FromRole="Customer" ToRole="Admin" />
+          <NavigationProperty Name="CustomerLogin" Relationship="Self.FK_Customer_CustomerLogin" FromRole="Customer" ToRole="CustomerLogin" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_Customer" FromRole="Customer" ToRole="Payment" />
+        </EntityType>
+        <EntityType Name="CustomerLogin">
+          <Key>
+            <PropertyRef Name="CustLoginID" />
+          </Key>
+          <Property Name="CustLoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_CustomerLogin" FromRole="CustomerLogin" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BusID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Payment_Customer" FromRole="Payment" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Register">
+          <Key>
+            <PropertyRef Name="RegID" />
+          </Key>
+          <Property Name="RegID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Aadmin_AdminLogin">
+          <End Role="AdminLogin" Type="Self.AdminLogin" Multiplicity="1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminLogin">
+              <PropertyRef Name="AdmLoginID" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="AdmLoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Admin_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustID" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="CustID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_CustomerLogin">
+          <End Role="CustomerLogin" Type="Self.CustomerLogin" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerLogin">
+              <PropertyRef Name="CustLoginID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CustLoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="CustID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BBSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="AdminLogins" EntityType="Self.AdminLogin" />
+          <EntitySet Name="Buses" EntityType="Self.Bus" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="CustomerLogins" EntityType="Self.CustomerLogin" />
+          <EntitySet Name="Drivers" EntityType="Self.Driver" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="Registers" EntityType="Self.Register" />
+          <AssociationSet Name="FK_Aadmin_AdminLogin" Association="Self.FK_Aadmin_AdminLogin">
+            <End Role="AdminLogin" EntitySet="AdminLogins" />
+            <End Role="Admin" EntitySet="Admins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Admin_Customer" Association="Self.FK_Admin_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Admin" EntitySet="Admins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_CustomerLogin" Association="Self.FK_Customer_CustomerLogin">
+            <End Role="CustomerLogin" EntitySet="CustomerLogins" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Customer" Association="Self.FK_Payment_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BBSModelStoreContainer" CdmEntityContainer="BBSEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="BBSModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdmID" ColumnName="AdmID" />
+                <ScalarProperty Name="AdmLoginID" ColumnName="AdmLoginID" />
+                <ScalarProperty Name="CustID" ColumnName="CustID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminLogins">
+            <EntityTypeMapping TypeName="BBSModel.AdminLogin">
+              <MappingFragment StoreEntitySet="AdminLogin">
+                <ScalarProperty Name="AdmLoginID" ColumnName="AdmLoginID" />
+                <ScalarProperty Name="AdmUsername" ColumnName="AdmUsername" />
+                <ScalarProperty Name="AdmPassword" ColumnName="AdmPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buses">
+            <EntityTypeMapping TypeName="BBSModel.Bus">
+              <MappingFragment StoreEntitySet="Bus">
+                <ScalarProperty Name="BusID" ColumnName="BusID" />
+                <ScalarProperty Name="BusName" ColumnName="BusName" />
+                <ScalarProperty Name="BusNumber" ColumnName="BusNumber" />
+                <ScalarProperty Name="BusStatus" ColumnName="BusStatus" />
+                <ScalarProperty Name="BusSeat" ColumnName="BusSeat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="BBSModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustID" ColumnName="CustID" />
+                <ScalarProperty Name="CustName" ColumnName="CustName" />
+                <ScalarProperty Name="CustGender" ColumnName="CustGender" />
+                <ScalarProperty Name="CustContact" ColumnName="CustContact" />
+                <ScalarProperty Name="CustCnic" ColumnName="CustCnic" />
+                <ScalarProperty Name="CustDeparture" ColumnName="CustDeparture" />
+                <ScalarProperty Name="CustArrival" ColumnName="CustArrival" />
+                <ScalarProperty Name="CustDate" ColumnName="CustDate" />
+                <ScalarProperty Name="CustBus" ColumnName="CustBus" />
+                <ScalarProperty Name="CustPrice" ColumnName="CustPrice" />
+                <ScalarProperty Name="CustImage" ColumnName="CustImage" />
+                <ScalarProperty Name="CustLoginID" ColumnName="CustLoginID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerLogins">
+            <EntityTypeMapping TypeName="BBSModel.CustomerLogin">
+              <MappingFragment StoreEntitySet="CustomerLogin">
+                <ScalarProperty Name="CustLoginID" ColumnName="CustLoginID" />
+                <ScalarProperty Name="CustUsername" ColumnName="CustUsername" />
+                <ScalarProperty Name="CustPassword" ColumnName="CustPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="BBSModel.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+                <ScalarProperty Name="BusID" ColumnName="BusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="BBSModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="CustID" ColumnName="CustID" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registers">
+            <EntityTypeMapping TypeName="BBSModel.Register">
+              <MappingFragment StoreEntitySet="Register">
+                <ScalarProperty Name="RegID" ColumnName="RegID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
